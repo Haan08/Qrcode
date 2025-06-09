@@ -352,7 +352,7 @@ def validate_scan(qr_id):
         return jsonify(success=False, message="QR code location not set."), 400
 
     distance = haversine(origin_lat, origin_lon, lat, lon)
-    allowed_distance_meters = 100
+    allowed_distance_meters = 300
 
     if distance > allowed_distance_meters:
         return jsonify(success=False, message=f"You are too far from the origin location ({int(distance)}m away)."), 403
